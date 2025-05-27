@@ -1,0 +1,11 @@
+#!/bin/bash
+
+if [ "$1" = "." ]; then
+    #echo "Kein Verzeichniswechsel: aktuelles Verzeichnis wurde angegeben."
+    return 1
+else
+    cd "$1" || {
+        #echo "Fehler beim Wechseln in das Verzeichnis: $1"
+        return 2
+    }
+fi
