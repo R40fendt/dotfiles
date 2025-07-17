@@ -38,6 +38,8 @@ alias fcd="source fcd"
 
 alias cat="bat"
 
+alias clear="clear && fastfetch"
+
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 export PATH="$HOME/.cargo/bin:$PATH"
 
@@ -48,3 +50,5 @@ export PATH="/home/linuxbrew/.linuxbrew/opt/node@22/bin:$PATH"
 
 
 export SSH_AUTH_SOCK=/home/jonas/.var/app/com.bitwarden.desktop/data/.bitwarden-ssh-agent.sock
+
+fastfetch
