@@ -5,7 +5,7 @@
   "margin-right": 10,
   "modules-left": ["hyprland/workspaces"],
   "modules-center": ["hyprland/window", "clock"],
-  "modules-right": ["tray","power-profiles-daemon","pulseaudio"],
+  "modules-right": ["tray","power-profiles-daemon","custom/colortemp","custom/gamma","pulseaudio"],
   "clock": {
     "format": "<span foreground='#00ff00'>   </span>{:%H:%M}",
     "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
@@ -58,5 +58,32 @@
         "balanced": "",
         "power-saver": ""
       }
+    },
+    
+    "custom/colortemp": {
+        "format": "<span size='12pt'> </span> {}K",
+        "on-click": "hyprctl hyprsunset temperature 6500",
+        "on-click-right": "hyprctl hyprsunset temperature 5000",
+        "on-scroll-up": "hyprctl hyprsunset temperature +500",
+        "on-scroll-down": "hyprctl hyprsunset temperature -500",
+        "exec": "hyprctl hyprsunset temperature",
+        "exec-on-event": true,
+        "exec-if": "pidof hyprsunset",
+        "interval": "once",
+        "tooltip": false,
+        "signal": 4
+    },
+    "custom/gamma": {
+        "format": "<span size='12pt'>☀️</span> {}%",
+        "on-click": "hyprctl hyprsunset gamma 100",
+	"on-click-right": "hyprctl hyprsunset gamma 75",
+        "on-scroll-up": "hyprctl hyprsunset gamma +1",
+        "on-scroll-down": "hyprctl hyprsunset gamma -1",
+        "exec": "hyprctl hyprsunset gamma",
+        "exec-on-event": true,
+        "exec-if": "pidof hyprsunset",
+        "interval": "once",
+        "tooltip": false,
+        "signal": 3
     }
 }
