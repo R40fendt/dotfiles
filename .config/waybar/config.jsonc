@@ -3,9 +3,9 @@
   "margin-top": 10,
   "margin-left": 10,
   "margin-right": 10,
-  "modules-left": ["hyprland/workspaces"],
+  "modules-left": ["hyprland/workspaces","mpris"],
   "modules-center": ["hyprland/window", "clock"],
-  "modules-right": ["tray","power-profiles-daemon","custom/colortemp","custom/gamma","pulseaudio"],
+  "modules-right": ["tray","power-profiles-daemon","custom/colortemp","custom/gamma","pulseaudio","custom/power"],
   "clock": {
     "format": "<span foreground='#00ff00'>   </span>{:%H:%M}",
     "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
@@ -59,7 +59,22 @@
         "power-saver": ""
       }
     },
-    
+   "custom/power": {
+        "format": "<span size='12pt'></span> {}",
+        "on-click": "/usr/bin/adios --ab"
+    }, 
+    "mpris": {
+    "format": " {player_icon}   {title} - {artist} ",
+    "format-paused": "    {title} - {artist} ",
+    "format-stopped": "  ",
+    "player-icons": {
+      "default": "",
+      "spotify": "",
+      "vlc": "嗢",
+      "chromium":""
+    },
+    "ignored-players": ["firefox"]
+  },
     "custom/colortemp": {
         "format": "<span size='12pt'> </span> {}K",
         "on-click": "hyprctl hyprsunset temperature 6500",

@@ -8,6 +8,12 @@
     transition: all ease-in-out 0.2s;
 }
 
+/*#mpris {
+  padding: 0 10px;
+  color: #a6e3a1;
+}*/
+
+
 window#waybar {
     border-radius: 20px;
     background-color: /*@crust*/ rgba(0, 0, 0, 0.0); 
