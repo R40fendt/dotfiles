@@ -1,5 +1,8 @@
 #!/bin/zsh
 
+#autoload -U compinit && compinit
+#source /usr/share/zsh/plugins/zsh-autocomplete/zsh-autocomplete.plugin.zsh
+setopt correct
 eval "$(starship init zsh)"
 export EDITOR="nvim"
 export SUDO_EDITOR="$EDITOR"
@@ -40,6 +43,9 @@ alias cat="bat"
 
 alias clear="clear && fastfetch"
 
+alias l="eza -la"
+alias ls="eza"
+
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 export PATH="$HOME/.cargo/bin:$PATH"
 
@@ -51,5 +57,63 @@ export PATH="/home/jonas/.local/bin:$PATH"
 
 export SSH_AUTH_SOCK=/home/jonas/.var/app/com.bitwarden.desktop/data/.bitwarden-ssh-agent.sock
 
-sl -eldw
+alias yt="youtube-tui loadpage search"
+
+eval "$(zoxide init --cmd=cd zsh)"
+alias c="clear"
+
+zmv() {
+    # Prüfe, ob mehr als ein Argument übergeben wurde
+    if [ "$#" -lt 2 ]; then
+        command mv "$@"
+        return
+    fi
+
+    # Zielverzeichnis = letztes Argument
+    dest="${@: -1}"
+
+    # Wenn das Zielverzeichnis nicht existiert, versuche es mit zoxide
+    if [ ! -d "$dest" ]; then
+        zpath=$(zoxide query "$dest" 2>/dev/null)
+        if [ -n "$zpath" ]; then
+            dest="$zpath"
+            set -- "${@:1:$(($#-1))}" "$dest"
+        fi
+    fi
+
+    command mv "$@"
+}
+
+zcp() {
+    if [ "$#" -lt 2 ]; then
+        command cp "$@"
+        return
+    fi
+
+    dest="${@: -1}"
+
+    if [ ! -d "$dest" ]; then
+        zpath=$(zoxide query "$dest" 2>/dev/null)
+        if [ -n "$zpath" ]; then
+            dest="$zpath"
+            set -- "${@:1:$(($#-1))}" "$dest"
+        fi
+    fi
+
+    command cp "$@"
+}
+
+command_not_found_handler() {
+    echo "Befehl '$1' nicht gefunden."
+
+    read -q "reply?Möchtest du in pacseek danach suchen? [y/N] "
+    echo
+    if [[ $reply == [Yy] ]]; then
+        pacsea "$1"
+    else
+        return 127
+    fi
+}
+
+#sl -eldw
 fastfetch

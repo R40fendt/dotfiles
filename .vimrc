@@ -70,6 +70,8 @@ Plug 'EdenEast/nightfox.nvim' "Colorscheme
 Plug 'junegunn/seoul256.vim' "Colorscheme
 Plug 'mechatroner/rainbow_csv' "Rainbow CSV
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && npx --yes yarn install' } "Markdown Preview
+Plug 'nanotee/zoxide.vim'
+Plug 'prettier/vim-prettier', { 'do': 'npm install' }
 
 
 call plug#end()
@@ -182,5 +184,14 @@ let g:vimtex_compiler_method = 'latexmk'
 let g:vimtex_compiler_latexmk_engines = {
       \ '_' : '-xelatex'
       \ }
+
+function! CompleteNextWord()
+  let dict = copilot#GetDisplayedSuggestion()
+  let text = dict['text']
+  let first = split(text, ' ')[0]
+  return first . ' '
+endfunction
+
+inoremap <silent><expr> <C-l> CompleteNextWord()
 
 cnoreabbrev vc VimtexCompile
