@@ -2,7 +2,7 @@
 
 #autoload -U compinit && compinit
 #source /usr/share/zsh/plugins/zsh-autocomplete/zsh-autocomplete.plugin.zsh
-setopt correct
+#setopt correct
 eval "$(starship init zsh)"
 export EDITOR="nvim"
 export SUDO_EDITOR="$EDITOR"
@@ -106,13 +106,13 @@ zcp() {
 command_not_found_handler() {
     echo "Befehl '$1' nicht gefunden."
 
-    read -q "reply?Möchtest du in pacseek danach suchen? [y/N] "
-    echo
-    if [[ $reply == [Yy] ]]; then
-        pacsea "$1"
-    else
-        return 127
-    fi
+    #read -q "reply?Möchtest du in pacseek danach suchen? [y/N] "
+    #echo
+    #if [[ $reply == [Yy] ]]; then
+    #    pacsea "$1"
+    #else
+    #    return 127
+    #fi
 }
 
 #sl -eldw

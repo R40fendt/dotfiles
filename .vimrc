@@ -49,6 +49,7 @@ highlight VertSplit cterm=NONE
 
 call plug#begin('~/.vim/plugged')
 
+Plug 'DanBradbury/copilot-chat.vim'
 Plug 'preservim/nerdtree'
 Plug 'junegunn/fzf', { 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
@@ -75,6 +76,9 @@ Plug 'prettier/vim-prettier', { 'do': 'npm install' }
 
 
 call plug#end()
+
+"for copilot chat:
+filetype plugin indent on
 
 "Open Terminal in current directory
 map <C-k> :let $VIM_DIR=expand('%:p:h')<CR>:vert term<CR>cd $VIM_DIR<CR>
