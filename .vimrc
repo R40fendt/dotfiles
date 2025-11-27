@@ -73,6 +73,7 @@ Plug 'mechatroner/rainbow_csv' "Rainbow CSV
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && npx --yes yarn install' } "Markdown Preview
 Plug 'nanotee/zoxide.vim'
 Plug 'prettier/vim-prettier', { 'do': 'npm install' }
+Plug 'gergap/vim-ollama'
 
 
 call plug#end()
