@@ -117,3 +117,9 @@ command_not_found_handler() {
 
 #sl -eldw
 fastfetch
+
+## [Completion]
+## Completion scripts setup. Remove the following line to uninstall
+[[ -f /home/jonas/.dart-cli-completion/zsh-config.zsh ]] && . /home/jonas/.dart-cli-completion/zsh-config.zsh || true
+## [/Completion]
+
