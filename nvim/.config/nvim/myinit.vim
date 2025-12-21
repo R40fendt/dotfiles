@@ -40,7 +40,6 @@ inoremap <C-BS> <C-W>
 
 "Map Ctrl-Backspace to delete the previous word in insert mode."
 noremap! <C-BS> <C-w>
-noremap! <C-h> <C-w>
 set backspace=indent,eol,start
 
 
@@ -49,11 +48,11 @@ highlight VertSplit cterm=NONE
 
 call plug#begin('~/.vim/plugged')
 
-Plug 'DanBradbury/copilot-chat.vim'
+" Plug 'DanBradbury/copilot-chat.vim'
 Plug 'preservim/nerdtree'
 Plug 'junegunn/fzf', { 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
-"Plug 'github/copilot.nvim'
+Plug 'github/copilot.vim'
 Plug 'dense-analysis/ale'
 Plug 'ryanoasis/vim-devicons' "Icons for NerdTree
 Plug 'psliwka/vim-smoothie' "Smooth Scrolling
@@ -84,13 +83,12 @@ Plug 'https://github.com/preservim/tagbar', {'on': 'TagbarToggle'} " Tagbar for 
 Plug 'https://github.com/navarasu/onedark.nvim'
 Plug 'https://github.com/morhetz/gruvbox'
 Plug 'https://github.com/mbbill/undotree'
-Plug 'https://github.com/lepture/vim-jinja'
-Plug 'https://github.com/tpope/vim-fugitive'
 Plug 'https://github.com/matze/vim-move'
 Plug 'voldikss/vim-floaterm'
-"Plug 'vim-python/python-syntax'
+Plug 'vim-python/python-syntax'
 Plug 'alvan/vim-closetag'
 
+Plug 'kdheepak/lazygit.nvim'
 
 call plug#end()
 
@@ -99,9 +97,12 @@ filetype plugin indent on
 
 "Open Terminal in current directory
 map <C-k> :let $VIM_DIR=expand('%:p:h')<CR>:vert term<CR>cd $VIM_DIR<CR>
+map <C-j> :FloatermNew<CR>
+map ,t :TagbarToggle<CR>
+nnoremap ,g :LazyGit<CR>
 :vertical resize +25<CR><C-w>w
-nnoremap <C-g> :vertical resize +5<CR>
-nnoremap <C-f> :vertical resize -5<CR>
+nnoremap <C-l> :vertical resize +5<CR>
+nnoremap <C-h> :vertical resize -5<CR>
 
 nnoremap ,b :NERDTreeToggle<CR>
 
@@ -213,7 +214,7 @@ function! CompleteNextWord()
   return first . ' '
 endfunction
 
-inoremap <silent><expr> <C-l> CompleteNextWord()
+inoremap <silent><expr> <C-Tab> CompleteNextWord()
 
 cnoreabbrev vc VimtexCompile
 
