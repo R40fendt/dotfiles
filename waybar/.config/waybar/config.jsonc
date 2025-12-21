@@ -3,7 +3,7 @@
   "margin-top": 10,
   "margin-left": 10,
   "margin-right": 10,
-  "modules-left": ["hyprland/workspaces","mpris"],
+  "modules-left": ["hyprland/workspaces","mpris", "temparature", "cpu", "memory"],
   "modules-center": ["hyprland/window", "clock"],
   "modules-right": ["tray","power-profiles-daemon","custom/colortemp","custom/gamma","pulseaudio","custom/power"],
   "clock": {
@@ -45,7 +45,6 @@
         "spacing": 10,
         "icons": {
            "blueman": "bluetooth"
-        //   "TelegramDesktop": "$HOME/.local/share/icons/hicolor/16x16/apps/telegram.png"
          }
     },
     "power-profiles-daemon": {
@@ -100,5 +99,19 @@
         "interval": "once",
         "tooltip": false,
         "signal": 3
-    }
+    },
+		"temperature": {
+    "format": "{icon} {temperatureC}°C ",
+    "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
+    "critical-threshold": 80,
+    "format-icons": ["", "", ""]
+  },
+  "memory": {
+    "format": "󰫗   {}% ",
+    "tooltip": "false"
+  },
+  "cpu": {
+    "format": "   {usage}% ",
+    "tooltip": "false"
+  }
 }

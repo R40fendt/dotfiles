@@ -1,3 +1,0 @@
-#!/bin/bash
-
-source /usr/bin/fcd-cd "$(ls -a | \fzf --preview "tree -L 2 -a {}")" && source /usr/bin/fcd

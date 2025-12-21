@@ -29,7 +29,8 @@ if [ -x /usr/bin/dircolors ]; then
     alias egrep='egrep --color=auto'
 fi
 
-
+alias shazamlyrics='python -m lyricsgenius song "$(shaq --listen -j | jq -r ".track.title + \" - \" + .track.subtitle")" -t "FEhz8SC30IR_yLYzjBP77hW1dGtvwyRYEpNjWi0h2_UDDqjD8rSv8tIEl6LuJ_af"'
+alias lyrics='python -m lyricsgenius song "$(playerctl metadata title) - $(playerctl metadata artist)" -t "FEhz8SC30IR_yLYzjBP77hW1dGtvwyRYEpNjWi0h2_UDDqjD8rSv8tIEl6LuJ_af"'
 alias fzc='fzf --preview "bat {} --style=numbers --color=always --line-range=:500" \
   --bind "enter:execute(code {})"'
 alias fza='fzf --preview "bat {} --style=numbers --color=always --line-range=:500" \
@@ -46,6 +47,8 @@ alias clear="clear && fastfetch"
 alias l="eza -la"
 alias ls="eza"
 
+alias ollmcp="uvx ollmcp -m llama3.1 -j ~/.config/ollmcp/mcp-servers/config.json"
+
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 export PATH="$HOME/.cargo/bin:$PATH"
 
@@ -61,6 +64,7 @@ alias yt="youtube-tui loadpage search"
 
 eval "$(zoxide init --cmd=cd zsh)"
 alias c="clear"
+alias vim="nvim"
 
 zmv() {
     # Prüfe, ob mehr als ein Argument übergeben wurde
@@ -123,3 +127,11 @@ fastfetch
 [[ -f /home/jonas/.dart-cli-completion/zsh-config.zsh ]] && . /home/jonas/.dart-cli-completion/zsh-config.zsh || true
 ## [/Completion]
 
+
+# pnpm
+export PNPM_HOME="/home/jonas/.local/share/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end
