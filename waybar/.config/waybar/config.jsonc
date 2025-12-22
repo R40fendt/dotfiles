@@ -4,7 +4,7 @@
   "margin-left": 10,
   "margin-right": 10,
   "modules-left": ["hyprland/workspaces","mpris", "temparature", "cpu", "memory"],
-  "modules-center": ["hyprland/window", "clock"],
+  "modules-center": ["custom/weathercloud_temperature","clock"],
   "modules-right": ["tray","power-profiles-daemon","custom/colortemp","custom/gamma","pulseaudio","custom/power"],
   "clock": {
     "format": "<span foreground='#00ff00'>   </span>{:%H:%M}",
@@ -87,6 +87,12 @@
         "tooltip": false,
         "signal": 4
     },
+		"custom/weathercloud_temperature": {
+				"format":"☁️ {} °C ",
+				"exec":"curl http:\/\/192.168.188.34:8123/api/states/sensor.weathercloud_temperatur -H 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiIzMzkxOWYzYjc0NTk0NjgwYjkwMmNmZDJiNzcyNGY3NiIsImlhdCI6MTc1NDU5NzQ1NCwiZXhwIjoyMDY5OTU3NDU0fQ.Oj8aUn6owuJDRj8LB-zVjm_ljDj7sXgxZP5JqPvwbXc' -s | jq -r .state",
+				"exec-on-event": true,
+				"interval":1
+		},
     "custom/gamma": {
         "format": "<span size='12pt'>☀️</span> {}%",
         "on-click": "hyprctl hyprsunset gamma 100",

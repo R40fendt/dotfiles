@@ -31,17 +31,12 @@ fi
 
 alias shazamlyrics='python -m lyricsgenius song "$(shaq --listen -j | jq -r ".track.title + \" - \" + .track.subtitle")" -t "FEhz8SC30IR_yLYzjBP77hW1dGtvwyRYEpNjWi0h2_UDDqjD8rSv8tIEl6LuJ_af"'
 alias lyrics='python -m lyricsgenius song "$(playerctl metadata title) - $(playerctl metadata artist)" -t "FEhz8SC30IR_yLYzjBP77hW1dGtvwyRYEpNjWi0h2_UDDqjD8rSv8tIEl6LuJ_af"'
-alias fzc='fzf --preview "bat {} --style=numbers --color=always --line-range=:500" \
-  --bind "enter:execute(code {})"'
-alias fza='fzf --preview "bat {} --style=numbers --color=always --line-range=:500" \
-  --bind "enter:become(sudo vim {})"'
 alias fzf='fzf --preview "bat {} --style=numbers --color=always --line-range=:500" \
   --bind "enter:become(vim {})"'
 alias cp="rsync -ah --info=progress2"
-alias fcd="source fcd"
 
 alias cat="bat"
-
+alias rm="trash-put"
 alias clear="clear && fastfetch"
 
 alias l="eza -la"
@@ -135,3 +130,7 @@ case ":$PATH:" in
   *) export PATH="$PNPM_HOME:$PATH" ;;
 esac
 # pnpm end
+
+
+alias hyprshutdown="hyprshutdown -t 'Shutting down...' --post-cmd 'shutdown now'"
+alias hyprreboot="hyprshutdown -t 'Restarting...' --post-cmd 'reboot'"

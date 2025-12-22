@@ -105,6 +105,7 @@ nnoremap <C-l> :vertical resize +5<CR>
 nnoremap <C-h> :vertical resize -5<CR>
 
 nnoremap ,b :NERDTreeToggle<CR>
+nnoremap ,u :UndotreeToggle<CR>
 
 "Colorscheme"
 "let g:seoul256_background = 233    "233 (darkest) ~ 239 (lightest)
