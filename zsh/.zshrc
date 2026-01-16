@@ -53,7 +53,7 @@ export NDK_HOME=/home/jonas/Android/Sdk/ndk/29.0.13113456
 export PATH="/home/linuxbrew/.linuxbrew/opt/node@22/bin:$PATH"
 export PATH="/home/jonas/.local/bin:$PATH"
 
-export SSH_AUTH_SOCK=/home/jonas/.var/app/com.bitwarden.desktop/data/.bitwarden-ssh-agent.sock
+export SSH_AUTH_SOCK=/home/jonas/.bitwarden-ssh-agent.sock
 
 alias yt="youtube-tui loadpage search"
 
