@@ -89,7 +89,7 @@
     },
 		"custom/weathercloud_temperature": {
 				"format":"☁️ {} °C ",
-				"exec":"curl http:\/\/192.168.188.34:8123/api/states/sensor.weathercloud_temperatur -H 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiIzMzkxOWYzYjc0NTk0NjgwYjkwMmNmZDJiNzcyNGY3NiIsImlhdCI6MTc1NDU5NzQ1NCwiZXhwIjoyMDY5OTU3NDU0fQ.Oj8aUn6owuJDRj8LB-zVjm_ljDj7sXgxZP5JqPvwbXc' -s | jq -r .state",
+				"exec":"curl https:\/\/r40homeassistant.ritzenbergen.de/api/states/sensor.weathercloud_temperatur -H \"Authorization: Bearer $(cat ~/.config/waybar/token.txt)\" -s | jq -r .state",
 				"exec-on-event": true,
 				"interval":1
 		},
