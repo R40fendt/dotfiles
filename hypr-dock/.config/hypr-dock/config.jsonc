@@ -8,7 +8,7 @@
     "Layer": "top",
 
     // Window position on screen (top, bottom, left, right) (default "bottom")
-    "Position": "left",
+    "Position": "bottom",
 
     // Delay before hiding the dock (ms) (default 400)
     "AutoHideDeley": 400, // *Only for "Layer": "auto"*
