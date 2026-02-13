@@ -134,3 +134,5 @@ esac
 
 alias hyprshutdown="hyprshutdown -t 'Shutting down...' --post-cmd 'shutdown now'"
 alias hyprreboot="hyprshutdown -t 'Restarting...' --post-cmd 'reboot'"
+
+alias hyprwindows="~/Dokumente/sh-scripts/Windows.sh"
