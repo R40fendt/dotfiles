@@ -8,7 +8,8 @@
     "mpris",
     "temparature",
     "cpu",
-    "memory"
+    "memory",
+		"custom/interval"
   ],
   "modules-center": [
     "custom/weathercloud_temperature",
@@ -153,6 +154,13 @@
     "format": "\uf4bc   {usage}% ",
     "tooltip": "false"
   },
+	"custom/interval": {
+        "exec": "~/.config/waybar/scripts/interval-wrapper.sh",
+        "return-type": "json",
+        "on-click": "pkill -SIGUSR1 -f 'bleep.*-json'",
+        "format": "{}",
+        "tooltip": true
+    },
   "include": [
     "/home/jonas/.config/waybar/hyprwhspr-module.jsonc"
   ]

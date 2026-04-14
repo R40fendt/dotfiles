@@ -42,7 +42,7 @@ alias clear="clear && fastfetch"
 alias l="eza -la"
 alias ls="eza"
 
-alias ollmcp="uvx ollmcp -m llama3.1 -j ~/.config/ollmcp/mcp-servers/config.json"
+alias ollmcp="uvx ollmcp -m gemma4:31b-cloud -j ~/.config/ollmcp/mcp-servers/config.json"
 
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 export PATH="$HOME/.cargo/bin:$PATH"
@@ -136,3 +136,7 @@ alias hyprshutdown="hyprshutdown -t 'Shutting down...' --post-cmd 'shutdown now'
 alias hyprreboot="hyprshutdown -t 'Restarting...' --post-cmd 'reboot'"
 
 alias hyprwindows="~/Dokumente/sh-scripts/Windows.sh"
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
