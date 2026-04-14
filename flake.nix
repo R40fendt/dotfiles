@@ -16,7 +16,7 @@
 				homeModules.default = { config, pkgs, ... }: {
 						home.stateVersion="24.05";
 						home.packages = [
-										hyprkcs
+										hyprkcs.packages.${pkgs.system}.default
 						];
 				};
 		};
