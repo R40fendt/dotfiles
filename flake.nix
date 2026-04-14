@@ -15,6 +15,9 @@
 		outputs = { self, nixpkgs, home-manager, hyprkcs, ... }: {
 				homeModules.default = { config, pkgs, ... }: {
 						home.stateVersion="24.05";
+						home.packages = [
+										hyprkcs
+						];
 				};
 		};
 }
